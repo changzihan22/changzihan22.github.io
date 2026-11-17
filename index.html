@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>个人主页 - Zihan Chang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- 简单的美化 -->
+  <meta name="description" content="Zihan Chang, PhD student at Zhejiang University researching efficient LLM training and inference, KV cache compression, and computer architecture.">
+  <title>Zihan Chang | Zhejiang University</title>
   <style>
     body {
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -29,6 +28,24 @@
       margin: 5px 0;
       font-size: 1.1em;
     }
+    header a {
+      color: #ffc267;
+    }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 16px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    nav a {
+      display: inline-block;
+      padding: 4px 0;
+      color: #f8f9fa;
+      text-decoration: none;
+    }
     main {
       max-width: 900px;
       margin: 20px auto;
@@ -39,12 +56,33 @@
       padding-bottom: 5px;
       margin-top: 30px;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
+    h3 {
+      margin: 0;
+      font-size: 1.05em;
     }
-    li {
-      margin: 8px 0;
+    .entries {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .entries > li + li {
+      margin-top: 18px;
+    }
+    .entries p {
+      margin: 3px 0 0;
+    }
+    .entry-meta {
+      color: #555;
+    }
+    .journal-list {
+      margin: 6px 0 0;
+      padding-inline-start: 1.25em;
+    }
+    .journal-list li + li {
+      margin-top: 4px;
+    }
+    code {
+      overflow-wrap: anywhere;
     }
     footer {
       text-align: center;
@@ -55,78 +93,167 @@
       color: #555;
     }
     a {
-      color: #0073e6;
-      text-decoration: none;
+      color: #065eb4;
     }
-    a:hover {
+    nav a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Zihan Chang</h1>
-    <p>PhD Student | Researcher in MLsys</p>
-    <p><a href="changzihan@zju.edu.cn" style="color:#f39c12;">changzihan@zju.edu.cn</a></p>
+    <h1>Zihan Chang <span lang="zh-CN">常子汉</span></h1>
+    <p>PhD Student · Zhejiang University</p>
+    <p><a href="mailto:changzihan@zju.edu.cn">changzihan@zju.edu.cn</a></p>
+    <nav aria-label="Page sections">
+      <ul>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research">Ongoing Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#awards">Awards &amp; Service</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
     <section>
       <h2>About Me</h2>
-      <p>
-        I am a Ph.D. student at Zhejiang University, advised by Prof. Shuibin He. Before that, 
-I received my M.S. degree from Lanzhou University, supervised by Prof. Wenbo Chen. 
-My research focuses on AI systems, LLM inference and training efficiency, model compression, and decentralized training & inference.
-        I aim to build efficient AI systems that can be applied 
-        to real-world problems.
-      </p>
+      <p>I am a PhD student at Zhejiang University, advised by Prof. Shuibin He. My research focuses on <strong>efficient LLM training and inference</strong>. I work on KV cache compression for long-context inference, scheduling across decentralized and heterogeneous GPU clusters, and architecture-aware optimization for AI accelerators.</p>
     </section>
 
-
-    <section>
-      <h2>Publications (First Author)</h2>
-      <ul>
-        <li><strong>[InQuant: An In-Place mixed-precision Quantization Method for KV Cache Compression with Neighbor Invasion]</strong> – Under review at AAAI, 2025. </li>
-        <li><strong>[Frenzy: A Memory-Aware Serverless LLM Training System for Heterogeneous GPU Clusters]</strong> –Under review at HPCA, 2024. <a href="https://arxiv.org/html/2412.14479v1">[html]</a><a href="https://github.com/ISCS-ZJU/Frenzy">[CODE]</a></li>
-        <li><strong>[SpiderFlow: Topology-Aware Scheduling for ML Training Across Decentralized GPU Clusters]</strong> – Under review at TPDS, 2023. </li>    
-	<li><strong>[ Electricity price prediction based on hybrid model of adam optimized LSTM neural network and wavelet transform]</strong> – Energy (IF = 9), 2019.   <a href="https://www.sciencedirect.com/science/article/abs/pii/S0360544219314768">[HTML]</a></li>
-	<li><strong>[ Effective Adam-optimized LSTM Neural Network for Electricity Price Forecasting]</strong> –, IEEE ICSESS 2018. <a href="https://ieeexplore.ieee.org/abstract/document/8663710">[HTML]</a></li>
-  </ul>
-    </section>
-
-<section>
-      <h2>Ongoing work</h2>
-      <ul>
-        <li><strong>[KV cache compression algorithm based on vLLM]</strong> – In collaboration with Sugon, 2025. 
-        <li><strong>[Decentralized serving]</strong> – In collaboration with UC Merced & Amazon, 2025. <a href="https://medium.com/@yotta-labs/decentralized-inference-with-ray-and-vllm-b10f675ad239">[BLOG]</a><a href="https://github.com/ISCS-ZJU/Decentralized-inference-based-on-vLLM">[CODE]</a></li>
+    <section id="publications">
+      <h2>First-Author Publications</h2>
+      <ul class="entries">
+        <li>
+          <h3>InQuant: An In-Place Mixed-Precision Quantization Method for KV Cache Compression with Neighbor Invasion</h3>
+          <p class="entry-meta"><strong>NeurIPS</strong> · <a href="https://github.com/ISCS-ZJU/InQuant-open-source">InQuant code</a></p>
+          <p>Reuses neighboring channel slots to keep important KV cache channels at higher precision while quantizing in place. The open-source implementation has been used in Sugon and Huawei Kunpeng inference projects.</p>
+        </li>
+        <li>
+          <h3>SpiderFlow: Topology-Aware Scheduling for ML Training Across Decentralized GPU Clusters</h3>
+          <p class="entry-meta"><strong>ACL (Main)</strong></p>
+          <p>Uses cluster topology to schedule training jobs and automates parallelism configuration for jobs that run across clusters.</p>
+        </li>
+        <li>
+          <h3>Frenzy: A Memory-Aware Serverless LLM Training System for Heterogeneous GPU Clusters</h3>
+          <p class="entry-meta"><strong>Euro-Par</strong> · <a href="https://arxiv.org/html/2412.14479v1">Preprint</a> · <a href="https://github.com/ISCS-ZJU/Frenzy">Frenzy code</a></p>
+          <p>Predicts GPU memory requirements and uses those estimates to allocate GPUs for serverless training jobs. Results from Frenzy were applied to the Nanhu scheduling system at Zhejiang Lab.</p>
+        </li>
+        <li>
+          <h3>Electricity Price Prediction Based on Hybrid Model of Adam Optimized LSTM Neural Network and Wavelet Transform</h3>
+          <p class="entry-meta"><strong>Energy</strong>, vol. 187, article 115804, 2019 · <a href="https://www.sciencedirect.com/science/article/abs/pii/S0360544219314768">Article</a></p>
+        </li>
+        <li>
+          <h3>Effective Adam-Optimized LSTM Neural Network for Electricity Price Forecasting</h3>
+          <p class="entry-meta"><strong>IEEE ICSESS</strong>, pp. 245–248, 2018 · <a href="https://ieeexplore.ieee.org/abstract/document/8663710">Paper</a></p>
+        </li>
       </ul>
     </section>
 
-
-    <section>
-      <h2>Projects</h2>
-      <ul>
-	<li><strong> Advancing KV cache compression techniques for DeepSeek R1 based on Sugon’s domestic GPGPU BW</strong> - Project Leader,  2025.9 - .</li>
-        <li><strong>The Science and Education Innovation Open Platform of the Next Generation of Artificial Intelligence</strong> – 2030 National Key Research and Development Program of China, No.2021ZD0110700, Primary contributor to Project 4, 12/2022-8/2025</li>
+    <section id="research">
+      <h2>Ongoing Research</h2>
+      <ul class="entries">
+        <li>
+          <h3>FrostKV: Hot-Cold Aware KV Compression for Offload-Efficient Long-Context LLM Inference</h3>
+          <p>Uses attention activity to identify hot and cold KV blocks and entropy-codes cold blocks to reduce memory use and offload traffic. Related compression algorithms have been used by H3C’s storage team.</p>
+        </li>
+        <li>
+          <h3>LenRoute: Risk-Aware Runtime Scheduling for Heterogeneous Decentralized LLM Serving</h3>
+          <p class="entry-meta">Manuscript under review</p>
+        </li>
+        <li>
+          <h3>Journal Extensions</h3>
+          <p class="entry-meta">First-author manuscripts under review</p>
+          <ul class="journal-list">
+            <li>A Memory-Calibrated and OOM-Resilient Serverless System for LLM Training on Heterogeneous Clusters</li>
+            <li>Topology- and Heterogeneity-Aware Decentralized Scheduling for LLM Training Across GPU Clusters</li>
+          </ul>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Work & Intern</h2>
-      <ul> 
-	<li><strong>Zhejiang Lab, intern AI researcher, 2024</strong></li>
-	<li><strong>Huawei AI lab, intern, 2023</strong></li>
-        <li><strong>Cambricon, Deep learning high-performance computing 
-library Engineer, 2020-2022 </strong></li>
-        <li><strong>Reviewer, IEEE Trans on computer (TC) </strong></li>
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <ul class="entries">
+        <li>
+          <h3>Decentralized LLM Serving with Ray and vLLM</h3>
+          <p class="entry-meta">Collaboration with UC Merced and Amazon · 2025</p>
+          <p>The serving prototype uses Ray to coordinate vLLM inference across nodes. <a href="https://medium.com/@yotta-labs/decentralized-inference-with-ray-and-vllm-b10f675ad239">Project blog</a> · <a href="https://github.com/ISCS-ZJU/Decentralized-inference-based-on-vLLM">Serving prototype code</a></p>
+        </li>
+        <li>
+          <h3>The Science and Education Innovation Open Platform of the Next Generation of Artificial Intelligence</h3>
+          <p class="entry-meta">Primary Contributor, Project 4 · Dec 2022–Aug 2025</p>
+          <p>2030 National Key Research and Development Program of China, No. 2021ZD0110700.</p>
+        </li>
       </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Work &amp; Internships</h2>
+      <ul class="entries">
+        <li>
+          <h3>Zhejiang Lab</h3>
+          <p class="entry-meta">AI Research Intern · 2024.10-2026.6</p>
+        </li>
+        <li>
+          <h3>Huawei AI Innovation Lab</h3>
+          <p class="entry-meta">Research Intern · Aug–Dec 2023</p>
+          <p>Modeled GPT-2 training memory use across ZeRO, mixed precision, activation recomputation, and parallelism configurations. In the tested configurations, memory estimates had errors below 5%, and GPT training FLOP estimates had errors of 2–10%.</p>
+        </li>
+        <li>
+          <h3>Cambricon</h3>
+          <p class="entry-meta">Deep Learning High-Performance Computing Library Engineer · Jul 2020–Aug 2022</p>
+          <p>Developed MLU kernels for all-reduce, embedding, scatter, gather, and pooling. Achieved 9× and 3× speedups over prior implementations for <code>unsorted_segment_sum</code> and <code>as_strided_backward</code>, respectively. Contributed CARAFE and RoIAlign operators to MMCV. <a href="https://github.com/open-mmlab/mmcv/pull/1429/files">RoIAlign contribution</a></p>
+        </li>
+        <li>
+          <h3>CASIC Second Academy, Institute 23</h3>
+          <p class="entry-meta">Radar Systems R&amp;D Engineer · Aug 2019–Jul 2020</p>
+          <p>Developed embedded radar systems, accelerated synthetic aperture radar image filtering with CUDA, and worked on real-time radar track prediction described in patent application CN 111814101 A.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="entries">
+        <li>
+          <h3>Zhejiang University</h3>
+          <p class="entry-meta">PhD in Computer Technology · Sep 2022–present · Expected graduation in 2027</p>
+        </li>
+        <li>
+          <h3>Lanzhou University</h3>
+          <p class="entry-meta">M.S. in Computer Technology · Sep 2016–Jun 2019</p>
+          <p>Advised by Prof. Wenbo Chen. Received a first-class scholarship and an Outstanding Graduate Student award. Ranked 3rd out of 49 students.</p>
+        </li>
+        <li>
+          <h3>Xi’an University of Science and Technology</h3>
+          <p class="entry-meta">Bachelor’s degree in Geographic Information Systems · Sep 2012–Jun 2016</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="awards">
+      <h2>Awards &amp; Service</h2>
+      <ul class="entries">
+        <li>
+          <h3>First Prize, China High-Performance Cloud Computing Innovation Competition</h3>
+          <p class="entry-meta">Mar 2018</p>
+          <p>Represented Lanzhou University and tied for first place with Tsinghua University. Parallelized drug–protein computation with CUDA.</p>
+        </li>
+        <li>Reviewer for <em>IEEE Transactions on Computers</em>.</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <p>C, Python, CUDA, PyTorch, vLLM, Ray, and Linux.</p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Zihan Chang | Built with GitHub Pages
+    &copy; 2026 Zihan Chang | Built with GitHub Pages
   </footer>
-
 </body>
 </html>
